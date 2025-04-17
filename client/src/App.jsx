@@ -6,6 +6,8 @@ import Login from './components/Login';
 import Signup from './components/Signup';
 import ManageJobs from './components/ManageJobs';  // Assuming ManageJobs is in the components folder
 
+
+
 const App = () => {
   return (
     <>
