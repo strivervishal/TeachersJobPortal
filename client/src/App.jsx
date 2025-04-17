@@ -8,6 +8,8 @@ import Home from './components/Home';
 import Login from './components/Login';
 import Signup from './components/Signup';
 import { useAuth } from './context/AuthContext';
+import './index.css';
+
 
 const App = () => {
   const { isAuthenticated } = useAuth();
