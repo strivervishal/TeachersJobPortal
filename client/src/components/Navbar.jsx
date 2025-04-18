@@ -92,10 +92,15 @@ const Navbar = () => {
                   onMouseEnter={() => setHoveredDropdown(id)}      
                   onMouseLeave={() => setHoveredDropdown(null)}     
                   onClick={() => {
-                    if (key === 'employers' && item === 'Manage Jobs') {
-                      navigate('/manage-jobs');
+                    if (key === 'employers') {
+                      if (item === 'Add Job') {
+                        navigate('/add-job');
+                      } else if (item === 'Manage Jobs') {
+                        navigate('/manage-jobs');
+                      }
                     }
                   }}
+                  
                 >
                   {item}
                 </div>
@@ -120,11 +125,15 @@ const Navbar = () => {
                   onMouseEnter={() => setHoveredDropdown(id)}      
                   onMouseLeave={() => setHoveredDropdown(null)}     
                   onClick={() => {
-                    setShowMobileNav(false);
-                    if (key === 'employers' && item === 'Manage Jobs') {
-                      navigate('/manage-jobs');
+                    if (key === 'employers') {
+                      if (item === 'Add Job') {
+                        navigate('/add-job');
+                      } else if (item === 'Manage Jobs') {
+                        navigate('/manage-jobs');
+                      }
                     }
                   }}
+                  
                 >
                   {item}
                 </div>
