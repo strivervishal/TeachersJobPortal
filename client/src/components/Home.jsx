@@ -10,7 +10,7 @@ const Home = () => {
         <h1 className="text-3xl font-bold mb-4">Welcome to TeachersJobPortal</h1>
         <p className="text-gray-600">Your dashboard and job listings will appear here.</p>
       </main>
-
+       
       {/* Footer Component */}
       <Footer />
     </div>

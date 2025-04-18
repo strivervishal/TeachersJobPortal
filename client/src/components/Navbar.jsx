@@ -95,6 +95,12 @@ const Navbar = () => {
                     if (key === 'employers' && item === 'Manage Jobs') {
                       navigate('/manage-jobs');
                     }
+                    if (key === 'employers' && item === 'Manage Applications') {
+                      navigate('/manage-applications');
+                    }
+                    if (key === 'home' && item === 'Home 1') {
+                      navigate('/');
+                    }
                   }}
                 >
                   {item}
@@ -123,6 +129,12 @@ const Navbar = () => {
                     setShowMobileNav(false);
                     if (key === 'employers' && item === 'Manage Jobs') {
                       navigate('/manage-jobs');
+                    }
+                    if (key === 'employers' && item === 'Manage Applications') {
+                      navigate('/manage-applications');
+                    }
+                    if (key === 'home' && item === 'Home 1') {
+                      navigate('/');
                     }
                   }}
                 >

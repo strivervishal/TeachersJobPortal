@@ -5,6 +5,7 @@ import Home from './components/Home';
 import Login from './components/Login';
 import Signup from './components/Signup';
 import ManageJobs from './components/ManageJobs';  // Assuming ManageJobs is in the components folder
+import ManageApplications from './components/manageApplications';
 
 
 
@@ -25,7 +26,8 @@ const App = () => {
         
         {/* Manage Jobs route */}
         <Route path="/manage-jobs" element={<ManageJobs />} />
-        
+        {/* Manage Applications Route */}
+        <Route path='/manage-applications' element={<ManageApplications />} />
         {/* Catch-all Route for undefined paths */}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
