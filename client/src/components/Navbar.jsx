@@ -1,4 +1,3 @@
-
 // src/components/Navbar.jsx
 import React, { useState, useEffect, useRef, useContext } from 'react';
 import { FaLock, FaBars, FaTimes } from 'react-icons/fa';
@@ -90,8 +89,13 @@ const Navbar = () => {
                       ? { backgroundColor: '#2952FF', color: '#fff' }
                       : {})
                   }}
-                  onMouseEnter={() => setHoveredDropdown(id)}      // ← ADD THESE TWO HANDLERS
-                  onMouseLeave={() => setHoveredDropdown(null)}     // ←
+                  onMouseEnter={() => setHoveredDropdown(id)}      
+                  onMouseLeave={() => setHoveredDropdown(null)}     
+                  onClick={() => {
+                    if (key === 'employers' && item === 'Manage Jobs') {
+                      navigate('/manage-jobs');
+                    }
+                  }}
                 >
                   {item}
                 </div>
@@ -113,9 +117,14 @@ const Navbar = () => {
                       ? { backgroundColor: '#2952FF', color: '#fff' }
                       : {})
                   }}
-                  onMouseEnter={() => setHoveredDropdown(id)}      // ← ADD THESE TWO HANDLERS
-                  onMouseLeave={() => setHoveredDropdown(null)}     // ←
-                  onClick={() => setShowMobileNav(false)}
+                  onMouseEnter={() => setHoveredDropdown(id)}      
+                  onMouseLeave={() => setHoveredDropdown(null)}     
+                  onClick={() => {
+                    setShowMobileNav(false);
+                    if (key === 'employers' && item === 'Manage Jobs') {
+                      navigate('/manage-jobs');
+                    }
+                  }}
                 >
                   {item}
                 </div>
@@ -148,7 +157,7 @@ const Navbar = () => {
   const linkBase = { textDecoration: 'none', color: '#0A0E27', fontWeight: 500, padding: '0.5rem 1rem', display: 'inline-block', cursor: 'pointer', width: isMobile ? '100%' : 'auto' };
   const linkActive = { color: '#2952FF', borderBottom: '2px solid #2952FF' };
   const dropdownStyle = { position: 'absolute', top: '100%', left: '50%', transform: 'translateX(-50%)', backgroundColor: '#fff', borderRadius: '4px', boxShadow: '0 2px 8px rgba(0,0,0,0.15)', overflow: 'hidden', zIndex: 200 };
-  const dropdownItem = { padding: '0.5rem 1rem', whiteSpace: 'nowrap', color: '#333', cursor: 'pointer', width: '100%', boxSizing: 'border-box' };  // ← ensure full‐width
+  const dropdownItem = { padding: '0.5rem 1rem', whiteSpace: 'nowrap', color: '#333', cursor: 'pointer', width: '100%', boxSizing: 'border-box' };
   const authContainer = { display: isMobile ? 'none' : 'flex', alignItems: 'center' };
   const loginLink = { display: 'flex', alignItems: 'center', textDecoration: 'none', color: '#0A0E27', fontWeight: 500, padding: isMobile ? '0.75rem 1rem' : 0, margin: isMobile ? 0 : '0 1.5rem 0 0', width: isMobile ? '100%' : 'auto', cursor: 'pointer' };
   const signupBtn = { backgroundColor: '#2952FF', color: '#fff', border: 'none', padding: '0.5rem 1rem', borderRadius: '4px', cursor: 'pointer', fontWeight: 500, fontSize: '0.9rem', width: isMobile ? 'calc(100% - 2rem)' : 'auto', margin: isMobile ? '0.5rem 1rem' : 0, textDecoration: 'none', display: 'inline-block', textAlign: 'center' };

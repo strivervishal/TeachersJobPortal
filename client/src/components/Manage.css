@@ -1,0 +1,200 @@
+.manage-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #f5f9ff;
+    padding: 30px;
+    font-family: 'Segoe UI', sans-serif;
+    gap: 20px;
+  }
+  
+  /* Sidebar */
+  .sidebar {
+    width: 240px;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 30px 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    height: fit-content;
+    flex-shrink: 0;
+  }
+  
+  .sidebar h2 {
+    font-size: 18px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: #1e1e2f;
+  }
+  
+  .sidebar button {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    padding: 10px 14px;
+    border-radius: 6px;
+    width: 100%;
+    margin-bottom: 12px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+    justify-content: flex-start;
+    gap: 10px;
+  }
+  
+  .sidebar button i {
+    font-size: 16px;
+  }
+  
+  .sidebar button:hover,
+  .sidebar button.active {
+    background-color: #466bff;
+    color: #fff;
+    border-color: #466bff;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .sidebar button.active i {
+    color: white;
+  }
+  
+  /* Main Content */
+  .main-content {
+    flex: 1;
+    flex-basis: 300px;
+    max-width: 650px;
+    height: auto;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  }
+  
+  .table-container {
+    width: 100%;
+    overflow-x: auto;
+    max-height: 500px;
+    overflow-y: auto;
+  }
+  
+  .jobs-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    min-width: 600px;
+  }
+  
+  .jobs-table th,
+  .jobs-table td {
+    text-align: left;
+    padding: 10px 14px;
+    border-bottom: 1px solid #eee;
+    vertical-align: middle;
+    font-size: 13px;
+  }
+  
+  .jobs-table th {
+    background-color: #f9fbfd;
+    color: #666;
+    font-weight: 500;
+  }
+  
+  .jobs-table td img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 8px;
+  }
+  
+  .jobs-table .badge {
+    background-color: #ebeaff;
+    color: #466bff;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 11px;
+    display: inline-block;
+  }
+  
+  .star-icon {
+    color: #ccc;
+    font-size: 20px;
+    cursor: pointer;
+    transition: color 0.2s ease;
+  }
+  
+  .star-icon:hover,
+  .star-icon.active {
+    color: #ffc107;
+  }
+  
+  /* Pagination */
+  .pagination {
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+  }
+  
+  .pagination button {
+    border: 1px solid #ddd;
+    background-color: #fff;
+    color: #333;
+    padding: 8px 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.3s;
+  }
+  
+  .pagination button:hover,
+  .pagination button.active {
+    background-color: #466bff;
+    color: #fff;
+    font-weight: bold;
+    border-color: #466bff;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 992px) {
+    .manage-container {
+      flex-direction: column;
+      padding: 20px;
+      align-items: center;
+    }
+  
+    .sidebar {
+      width: 100%;
+      margin-right: 0;
+    }
+  
+    .main-content {
+      width: 100%;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .sidebar button {
+      font-size: 13px;
+      padding: 10px 12px;
+    }
+  
+    .jobs-table th,
+    .jobs-table td {
+      font-size: 12px;
+      padding: 8px 10px;
+    }
+  
+    .pagination button {
+      font-size: 12px;
+      padding: 6px 10px;
+    }
+  
+    .table-container {
+      overflow-x: auto;
+    }
+  }
+  
