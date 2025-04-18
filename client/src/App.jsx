@@ -9,6 +9,7 @@ import ContactPage from './components/ContactPage';
 import ManageJobs from './components/ManageJobs';  
 import ManageApplications from './components/manageApplications';
 import AddJob from './components/AddJob';  
+import ManageResumes from './components/ManageResumes';
 
 const App = () => {
 
@@ -55,6 +56,8 @@ const App = () => {
         
         {/* Manage Applications Route */}
         <Route path='/manage-applications' element={<ManageApplications />} />
+
+        <Route path='/manage-resumes' element={<ManageResumes />} />
         {/* Catch-all Route for undefined paths */}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
