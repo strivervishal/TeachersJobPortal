@@ -6,8 +6,7 @@ import Login from './components/Login';
 import Signup from './components/Signup';
 import ManageJobs from './components/ManageJobs';  // Assuming ManageJobs is in the components folder
 import ManageApplications from './components/manageApplications';
-
-
+import AddJob from './components/AddJob';  
 
 const App = () => {
   return (
@@ -26,6 +25,10 @@ const App = () => {
         
         {/* Manage Jobs route */}
         <Route path="/manage-jobs" element={<ManageJobs />} />
+        
+        {/* Add Job route */}
+        <Route path="/add-job" element={<AddJob />} />  {/* ✅ Fixed */}
+        
         {/* Manage Applications Route */}
         <Route path='/manage-applications' element={<ManageApplications />} />
         {/* Catch-all Route for undefined paths */}
