@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Footer from './Footer';
 
 function AddJob() {
   const [logoFileName, setLogoFileName] = useState("");
@@ -60,35 +61,6 @@ function AddJob() {
 
   return (
     <div className="bg-[#f7fafd] min-h-screen">
-      {/* Header */}
-      {/* <div
-        className="relative text-white py-25 px-25"
-        style={{
-          backgroundImage: `url('https://res.cloudinary.com/dj2juzuu5/image/upload/v1744105564/job6_q1q2mp.png')`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
-        <div className="absolute inset-0 bg-blue-800/60 backdrop-blur-sm"></div>
-
-        <div className="relative max-w-6xl mx-auto z-10 pr-90">
-          <h1 className="text-4xl font-bold mb-4">Post a Job</h1>
-          <p className="mb-2 max-w-xl">
-            Business plan draws on a wide range of knowledge from different
-            business disciplines. Business draws on a wide range of different
-            business.
-          </p>
-          <div className="flex space-x-4 text-sm">
-            <span>Home</span>
-            <span>|</span>
-            <span>Blog</span>
-            <span>|</span>
-            <span>Post a Job</span>
-          </div>
-        </div>
-      </div> */}
-
-      {/* Job Posting Form */}
       <div className="max-w-5xl mx-auto py-12 px-6">
         <div className="bg-white p-8 shadow rounded-xl space-y-12">
 
@@ -256,6 +228,9 @@ function AddJob() {
           </div>
         </div>
       </div>
+       {/* Add Footer at the bottom */}
+       <Footer />
+          
     </div>
   );
 }
