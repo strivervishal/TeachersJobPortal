@@ -33,7 +33,7 @@ const routeTextMap = {
     text: "Business plan draws on a wide range of knowledge from different business disciplines. Business draws on a wide range of different business.",
     breadcrumbs: [
       { text: 'Home', link: '/' },
-      { text: 'Manage Jobs', link: '/manage-job' }
+      { text: 'Manage Applications', link: '/manage-applications' }
     ],
   },
   "/manage-resumes": {
