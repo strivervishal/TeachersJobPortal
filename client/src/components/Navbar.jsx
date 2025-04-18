@@ -98,6 +98,9 @@ const Navbar = () => {
                     if (key === 'employers' && item === 'Manage Applications') {
                       navigate('/manage-applications');
                     }
+                    if (key === 'employers' && item === 'Manage Resume') {
+                      navigate('/manage-resumes');
+                    }
                     if (key === 'home' && item === 'Home 1') {
                       navigate('/');
                     }
@@ -136,6 +139,9 @@ const Navbar = () => {
                     if (key === 'employers' && item === 'Manage Applications') {
                       navigate('/manage-applications');
                     }
+                    if (key === 'employers' && item === 'Manage Resume') {
+                      navigate('/manage-resumes');
+                    }                 
                     if (key === 'home' && item === 'Home 1') {
                       navigate('/');
                     }
