@@ -9,6 +9,7 @@ import {
   FaMapMarkerAlt,
 } from "react-icons/fa";
 import Footer from "./Footer";
+import Banner from "./Banner";
 
 const handleSubmit = async (e) => {
   e.preventDefault();
@@ -40,6 +41,8 @@ const handleSubmit = async (e) => {
 const ContactPage = () => {
   return (
     <>
+      <Banner/>
+
       {/* Contact Section */}
       <section className="pb-12 pt-24  bg-gray-100 px-4">
         <div className="max-w-7xl mx-auto">

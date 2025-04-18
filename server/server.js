@@ -25,6 +25,7 @@ app.use(express.json());
 // Routes
 app.use('/api/auth', require('./routes/auth'));
 app.use("/api/contact", contactRoutes);
+app.use("/api/applications", require('./routes/applications'));
 app.use('/api/jobs', require('./routes/jobRoutes'));  // Add this line to include job routes
 
 // Test protected route

@@ -95,6 +95,15 @@ const Navbar = () => {
                     if (key === 'employers' && item === 'Manage Jobs') {
                       navigate('/manage-jobs');
                     }
+                    if (key === 'employers' && item === 'Manage Applications') {
+                      navigate('/manage-applications');
+                    }
+                    if (key === 'home' && item === 'Home 1') {
+                      navigate('/');
+                    }
+                    if (item === 'Add Job') {
+                      navigate('/add-job');
+                    } 
                   }}
                 >
                   {item}
@@ -124,6 +133,15 @@ const Navbar = () => {
                     if (key === 'employers' && item === 'Manage Jobs') {
                       navigate('/manage-jobs');
                     }
+                    if (key === 'employers' && item === 'Manage Applications') {
+                      navigate('/manage-applications');
+                    }
+                    if (key === 'home' && item === 'Home 1') {
+                      navigate('/');
+                    }
+                    if (item === 'Add Job') {
+                      navigate('/add-job');
+                    } 
                   }}
                 >
                   {item}

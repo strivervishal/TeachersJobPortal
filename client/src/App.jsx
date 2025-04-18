@@ -7,8 +7,8 @@ import Signup from './components/Signup';
 import { useAuth } from './context/AuthContext';
 import ContactPage from './components/ContactPage';
 import ManageJobs from './components/ManageJobs';  
-
-
+import ManageApplications from './components/manageApplications';
+import AddJob from './components/AddJob';  
 
 const App = () => {
 
@@ -50,6 +50,11 @@ const App = () => {
         {/* Manage Jobs route */}
         <Route path="/manage-jobs" element={<ManageJobs />} />
         
+        {/* Add Job route */}
+        <Route path="/add-job" element={<AddJob />} />  {/* ✅ Fixed */}
+        
+        {/* Manage Applications Route */}
+        <Route path='/manage-applications' element={<ManageApplications />} />
         {/* Catch-all Route for undefined paths */}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
