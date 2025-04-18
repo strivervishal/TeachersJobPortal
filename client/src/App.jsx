@@ -6,11 +6,14 @@ import Login from './components/Login';
 import Signup from './components/Signup';
 import { useAuth } from './context/AuthContext';
 import ContactPage from './components/ContactPage';
-import ManageJobs from './components/ManageJobs';  // Assuming ManageJobs is in the components folder
+import ManageJobs from './components/ManageJobs';  
 
 
 
 const App = () => {
+
+  const { isAuthenticated } = useAuth();
+
   return (
     <>
       {/* Navbar will be displayed on every page */}

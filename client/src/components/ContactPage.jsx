@@ -8,6 +8,7 @@ import {
   FaEnvelope,
   FaMapMarkerAlt,
 } from "react-icons/fa";
+import Footer from "./Footer";
 
 const handleSubmit = async (e) => {
   e.preventDefault();
@@ -35,7 +36,6 @@ const handleSubmit = async (e) => {
     alert("Failed to submit form. Please try again.");
   }
 };
-
 
 const ContactPage = () => {
   return (
@@ -163,31 +163,28 @@ const ContactPage = () => {
         </div>
       </section>
 
-     
-      
       {/* Google Maps */}
-<div className="w-full px-5 pb-5 bg-gray-100">
-  <div className="max-w-screen-xl mx-auto">
-    <div className="w-full">
-      <div className="relative h-[400px] text-right p-5 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.15)] bg-white rounded-lg box-border">
-        <iframe
-          className="w-full h-full border-0"
-          id="gmap_canvas"
-          src="https://maps.google.com/maps?q=New%20York&t=&z=13&ie=UTF8&iwloc=&output=embed"
-          frameBorder="0"
-          scrolling="no"
-          marginHeight="0"
-          marginWidth="0"
-          allowFullScreen
-          loading="lazy"
-          title="Google Map"
-        ></iframe>
+      <div className="w-full px-5 pb-5 bg-gray-100">
+        <div className="max-w-screen-xl mx-auto">
+          <div className="w-full">
+            <div className="relative h-[400px] text-right p-5 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.15)] bg-white rounded-lg box-border">
+              <iframe
+                className="w-full h-full border-0"
+                id="gmap_canvas"
+                src="https://maps.google.com/maps?q=New%20York&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                frameBorder="0"
+                scrolling="no"
+                marginHeight="0"
+                marginWidth="0"
+                allowFullScreen
+                loading="lazy"
+                title="Google Map"
+              ></iframe>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-</div>
-
-
+      <Footer/>
     </>
   );
 };
