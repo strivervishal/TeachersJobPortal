@@ -1,0 +1,93 @@
+[
+    {
+      "id": 1,
+      "teacher_name": "John Doe",
+      "job_title": "Math Teacher",
+      "resume_url": "https://example.com/resumes/johndoe.pdf",
+      "applied_on": "2025-04-08T09:00:00Z",
+      "status": "New",
+      "image_url": "https://randomuser.me/api/portraits/men/32.jpg"
+    },
+    {
+      "id": 2,
+      "teacher_name": "Jane Smith",
+      "job_title": "Science Teacher",
+      "resume_url": "https://example.com/resumes/janesmith.pdf",
+      "applied_on": "2025-04-07T14:22:00Z",
+      "status": "Shortlisted",
+      "image_url": "https://randomuser.me/api/portraits/women/44.jpg"
+    },
+    {
+      "id": 3,
+      "teacher_name": "Alex Johnson",
+      "job_title": "English Teacher",
+      "resume_url": "https://example.com/resumes/alexjohnson.pdf",
+      "applied_on": "2025-04-06T11:30:00Z",
+      "status": "New",
+      "image_url": "https://randomuser.me/api/portraits/men/45.jpg"
+    },
+    {
+      "id": 4,
+      "teacher_name": "Sara Parker",
+      "job_title": "Biology Teacher",
+      "resume_url": "https://example.com/resumes/saraparker.pdf",
+      "applied_on": "2025-04-05T10:15:00Z",
+      "status": "Rejected",
+      "image_url": "https://randomuser.me/api/portraits/women/52.jpg"
+    },
+    {
+      "id": 5,
+      "teacher_name": "David Lee",
+      "job_title": "History Teacher",
+      "resume_url": "https://example.com/resumes/davidlee.pdf",
+      "applied_on": "2025-04-04T12:45:00Z",
+      "status": "Shortlisted",
+      "image_url": "https://randomuser.me/api/portraits/men/18.jpg"
+    },
+    {
+      "id": 6,
+      "teacher_name": "Emily Carter",
+      "job_title": "Geography Teacher",
+      "resume_url": "https://example.com/resumes/emilycarter.pdf",
+      "applied_on": "2025-04-03T09:50:00Z",
+      "status": "New",
+      "image_url": "https://randomuser.me/api/portraits/women/68.jpg"
+    },
+    {
+      "id": 7,
+      "teacher_name": "Michael Brown",
+      "job_title": "Chemistry Teacher",
+      "resume_url": "https://example.com/resumes/michaelbrown.pdf",
+      "applied_on": "2025-04-02T14:30:00Z",
+      "status": "Rejected",
+      "image_url": "https://randomuser.me/api/portraits/men/73.jpg"
+    },
+    {
+      "id": 8,
+      "teacher_name": "Olivia Wilson",
+      "job_title": "Physics Teacher",
+      "resume_url": "https://example.com/resumes/oliviawilson.pdf",
+      "applied_on": "2025-04-01T08:20:00Z",
+      "status": "Shortlisted",
+      "image_url": "https://randomuser.me/api/portraits/women/36.jpg"
+    },
+    {
+      "id": 9,
+      "teacher_name": "Chris Evans",
+      "job_title": "Computer Science Teacher",
+      "resume_url": "https://example.com/resumes/chrisevans.pdf",
+      "applied_on": "2025-03-31T16:10:00Z",
+      "status": "New",
+      "image_url": "https://randomuser.me/api/portraits/men/60.jpg"
+    },
+    {
+      "id": 10,
+      "teacher_name": "Sophia Moore",
+      "job_title": "Art Teacher",
+      "resume_url": "https://example.com/resumes/sophiamoore.pdf",
+      "applied_on": "2025-03-30T10:00:00Z",
+      "status": "New",
+      "image_url": "https://randomuser.me/api/portraits/women/21.jpg"
+    }
+  ]
+  

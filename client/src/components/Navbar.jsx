@@ -7,7 +7,7 @@ import { AuthContext } from '../context/AuthContext';
 const Navbar = () => {
   const [openMenu, setOpenMenu] = useState(null);
   const [hoveredMenu, setHoveredMenu] = useState(null);
-  const [hoveredDropdown, setHoveredDropdown] = useState(null);      // ← ADD THIS LINE
+  const [hoveredDropdown, setHoveredDropdown] = useState(null);
   const [isMobile, setIsMobile] = useState(false);
   const [showMobileNav, setShowMobileNav] = useState(false);
   const navRef = useRef(null);
@@ -89,11 +89,15 @@ const Navbar = () => {
                       ? { backgroundColor: '#2952FF', color: '#fff' }
                       : {})
                   }}
-                  onMouseEnter={() => setHoveredDropdown(id)}      
-                  onMouseLeave={() => setHoveredDropdown(null)}     
+                  onMouseEnter={() => setHoveredDropdown(id)}
+                  onMouseLeave={() => setHoveredDropdown(null)}
                   onClick={() => {
-                    if (key === 'employers' && item === 'Manage Jobs') {
-                      navigate('/manage-jobs');
+                    if (key === 'employers') {
+                      if (item === 'Manage Jobs') {
+                        navigate('/manage-jobs');
+                      } else if (item === 'Manage Resume') {
+                        navigate('/manage-resumes');
+                      }
                     }
                   }}
                 >
@@ -117,12 +121,16 @@ const Navbar = () => {
                       ? { backgroundColor: '#2952FF', color: '#fff' }
                       : {})
                   }}
-                  onMouseEnter={() => setHoveredDropdown(id)}      
-                  onMouseLeave={() => setHoveredDropdown(null)}     
+                  onMouseEnter={() => setHoveredDropdown(id)}
+                  onMouseLeave={() => setHoveredDropdown(null)}
                   onClick={() => {
                     setShowMobileNav(false);
-                    if (key === 'employers' && item === 'Manage Jobs') {
-                      navigate('/manage-jobs');
+                    if (key === 'employers') {
+                      if (item === 'Manage Jobs') {
+                        navigate('/manage-jobs');
+                      } else if (item === 'Manage Resume') {
+                        navigate('/manage-resumes');
+                      }
                     }
                   }}
                 >
