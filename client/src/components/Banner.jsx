@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
 const routeTextMap = {
+
   "/about": {
     title: "About Us",
     text: "Business plan draws on a wide range of knowledge from different business disciplines. Business draws on a wide range of different business.",
@@ -52,6 +53,8 @@ const routeTextMap = {
     ],
   },
 };
+
+
 
 const Banner = () => {
   const location = useLocation();
