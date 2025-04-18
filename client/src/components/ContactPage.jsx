@@ -9,6 +9,34 @@ import {
   FaMapMarkerAlt,
 } from "react-icons/fa";
 
+const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  const formData = {
+    name: e.target[0].value,
+    subject: e.target[1].value,
+    email: e.target[2].value,
+    phone: e.target[3].value,
+    message: e.target[4].value,
+  };
+
+  try {
+    const res = await fetch("http://localhost:5000/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData),
+    });
+
+    const data = await res.json();
+    alert(data.message || data.error);
+
+    e.target.reset();
+  } catch (err) {
+    alert("Failed to submit form. Please try again.");
+  }
+};
+
+
 const ContactPage = () => {
   return (
     <>
@@ -18,7 +46,7 @@ const ContactPage = () => {
           <div className="flex flex-col lg:flex-row bg-white rounded-lg shadow-[0_4px_20px_-4px_rgba(0,0,0,0.15)] overflow-hidden">
             {/* Form - 60% */}
             <div className="w-full lg:w-3/5 p-12">
-              <form className="space-y-8">
+              <form className="space-y-8" onSubmit={handleSubmit}>
                 <div className="grid md:grid-cols-2 gap-8">
                   <input
                     type="text"
