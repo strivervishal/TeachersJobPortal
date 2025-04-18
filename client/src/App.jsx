@@ -1,10 +1,10 @@
-// App.jsx
 import React from "react";
+import EmployerDashboard from "./components/dashboard"; // Adjust path if needed
 
 function App() {
   return (
-    <div className="text-center text-3xl p-4">
-      <h1>Welcome to Teachers Job Portal</h1>
+    <div>
+      <EmployerDashboard />
     </div>
   );
 }
