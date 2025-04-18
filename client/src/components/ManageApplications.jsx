@@ -186,11 +186,11 @@ const ManageApplications = () => {
     
 
   return (
-    <div className="font-sans font-normal not-italic overflow-x-hidden text-sm flex flex-col md:flex-row p-4 md:p-8 gap-6">
+    <div className="flex  flex-wrap lg:flex-nowrap justify-center items-start min-h-screen bg-[#f5f9ff] p-5 lg:p-8 gap-5 font-['Segoe_UI',sans-serif]">
       {/* Sidebar */}
-      <div className="w-full md:w-1/4 bg-white rounded-xl shadow-sm p-6">
+      <div className="w-[240px] bg-white rounded-lg p-[30px_20px] shadow-sm h-fit flex-shrink-0 lg:mr-0 w-full lg:w-[350px]">
         <h2 className="text-xl font-semibold mb-4">Manage Account</h2>
-        <ul className="space-y-3 text-sm">
+        <ul className="space-y-3 text-gray-700 text-sm">
           <li>
             <a
               href="/resume"
@@ -256,31 +256,31 @@ const ManageApplications = () => {
       </div>
 
       {/* Applications List */}
-      <div className="w-full md:w-3/4 bg-white rounded-xl shadow-sm p-6">
+      <div className="flex-1 basis-[300px] max-w-[670px] w-full bg-white rounded-lg p-[15px] shadow-sm px-8">
         {paginatedApps.map((app) => (
           <div
             key={app.id + app.company}
-            className="flex justify-between items-center border-b border-gray-300 py-4"
+            className="flex justify-between items-center border-b border-gray-300 py-4 "
           >
             <div className="flex items-center gap-4">
-              <img src={app.logo} alt="logo" className="w-18 h-18 object-contain" />
+              <img src={app.logo} alt="logo" className="w-13 h-13 object-contain" />
               <div>
-                <h3 className="pl-6 font-semibold text-lg">{app.title}</h3>
-                <p className="pl-6 text-sm text-gray-500">{app.company}</p>
+                <h3 className="pl-4 font-semibold text-sm">{app.title}</h3>
+                <p className="pl-4 text-sm text-gray-500">{app.company}</p>
               </div>
             </div>
-            <div className="flex items-center gap-10 mr-10 text-sm">
+            <div className="flex items-center gap-8 text-sm">
               <span className="bg-indigo-100 text-indigo-600 font-medium px-2 py-1 rounded-md">
                 {app.type}
               </span>
-              <span className="text-gray-500">{app.date}</span>
-              <span className="text-gray-700 font-medium">{app.status}</span>
+              <span className="text-sm text-gray-500">{app.date}</span>
+              <span className="text-sm text-gray-500">{app.status}</span>
             </div>
           </div>
         ))}
 
         {/* Pagination Controls */}
-        <div className="flex justify-center items-center gap-2 mt-6">
+        <div className="flex justify-center items-center gap-2 my-6">
           <button
             onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
             disabled={currentPage === 1}
