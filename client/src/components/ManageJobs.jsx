@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './Manage.css';
+import Banner from './Banner';
+import Footer from './Footer';
 
 const Manage = () => {
   const [jobs, setJobs] = useState([]);
@@ -46,7 +48,9 @@ const Manage = () => {
   };
 
   return (
-    <div className="manage-container">
+    <>
+      <Banner/>
+      <div className="manage-container">
       {/* Sidebar */}
       <div className="sidebar">
         <h2>Manage Account</h2>
@@ -111,7 +115,9 @@ const Manage = () => {
           </button>
         </div>
       </div>
-    </div>
+      </div>
+      <Footer/>
+    </>
   );
 };
 
