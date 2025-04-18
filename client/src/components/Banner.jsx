@@ -52,6 +52,14 @@ const routeTextMap = {
       { text: 'Browse Resumes', link: '/browse-resumes' }
     ],
   },
+  "/contact": {
+    title: "Contact Us",
+    text: "Business plan draws on a wide range of knowledge from different business disciplines. Business draws on a wide range of different business.",
+    breadcrumbs: [
+      { text: 'Home', link: '/' },
+      { text: 'Contact Us', link: '/contact' }
+    ],
+  },
 };
 
 

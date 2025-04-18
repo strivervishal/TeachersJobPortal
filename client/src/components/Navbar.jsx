@@ -194,9 +194,20 @@ const Navbar = () => {
         {renderMenu('pages', 'Pages')}
         {renderMenu('candidates', 'Candidates')}
         {renderMenu('employers', 'Employers')}
-        <li style={navItem} onMouseEnter={() => !isMobile && setHoveredMenu('contact')} onMouseLeave={() => !isMobile && setHoveredMenu(null)} onClick={() => isMobile && setShowMobileNav(false)}>
-          <span style={{ ...linkBase, ...(isUnderlined('contact') ? linkActive : {}) }}>Contact</span>
-        </li>
+        <li
+  style={navItem}
+  onMouseEnter={() => !isMobile && setHoveredMenu('contact')}
+  onMouseLeave={() => !isMobile && setHoveredMenu(null)}
+  onClick={() => isMobile && setShowMobileNav(false)}
+>
+  <Link
+    to="/contact"
+    style={{ ...linkBase, ...(isUnderlined('contact') ? linkActive : {}) }}
+  >
+    Contact
+  </Link>
+</li>
+
         {isMobile && showMobileNav && (
           <>
             {!isAuthenticated ? (
