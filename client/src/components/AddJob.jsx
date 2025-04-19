@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Banner from './Banner';
 import Footer from './Footer';
 
 function AddJob() {
@@ -17,39 +18,44 @@ function AddJob() {
   };
 
   const handleSubmit = async () => {
-    const jobPayload = {
-      ...formData,
-      jobCategory: document.querySelector("#jobCategory")?.value,
-      jobType: document.querySelector("#jobType")?.value,
-      applicationDeadline: document.querySelector("#applicationDeadline")?.value,
-      salaryCurrency: document.querySelector("#salaryCurrency")?.value,
-      companyName: document.querySelector("#companyName")?.value,
-      companyWebsite: document.querySelector("#companyWebsite")?.value,
-      companyIndustry: document.querySelector("#companyIndustry")?.value,
-      socialLinks: {
-        facebook: document.querySelector("#facebook")?.value,
-        linkedin: document.querySelector("#linkedin")?.value,
-        twitter: document.querySelector("#twitter")?.value,
-        instagram: document.querySelector("#instagram")?.value,
-      },
-      recruiter: {
-        fullName: document.querySelector("#recruiterName")?.value,
-        email: document.querySelector("#recruiterEmail")?.value,
-      },
-      logoFileName: logoFileName,
-    };
-
+    const form = new FormData();
+  
+    // Append text fields
+    form.append("jobTitle", formData.jobTitle);
+    form.append("jobDescription", formData.jobDescription);
+    form.append("companyDescription", formData.companyDescription);
+    form.append("isAgreed", formData.isAgreed);
+  
+    form.append("jobCategory", document.querySelector("#jobCategory")?.value);
+    form.append("jobType", document.querySelector("#jobType")?.value);
+    form.append("applicationDeadline", document.querySelector("#applicationDeadline")?.value);
+    form.append("salaryCurrency", document.querySelector("#salaryCurrency")?.value);
+    form.append("companyName", document.querySelector("#companyName")?.value);
+    form.append("companyWebsite", document.querySelector("#companyWebsite")?.value);
+    form.append("companyIndustry", document.querySelector("#companyIndustry")?.value);
+  
+    form.append("facebook", document.querySelector("#facebook")?.value);
+    form.append("linkedin", document.querySelector("#linkedin")?.value);
+    form.append("twitter", document.querySelector("#twitter")?.value);
+    form.append("instagram", document.querySelector("#instagram")?.value);
+  
+    form.append("recruiterName", document.querySelector("#recruiterName")?.value);
+    form.append("recruiterEmail", document.querySelector("#recruiterEmail")?.value);
+  
+    const logoFile = document.querySelector("#logo-upload")?.files[0];
+    if (logoFile) {
+      form.append("logo", logoFile);
+    }
+  
     try {
       const response = await fetch("http://localhost:5000/api/jobs", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(jobPayload),
+        body: form,
       });
-
+  
       const data = await response.json();
       if (response.ok) {
         alert("Job posted successfully!");
-        // Reset form if needed
       } else {
         alert("Error: " + data.message);
       }
@@ -58,12 +64,14 @@ function AddJob() {
       alert("Failed to post job.");
     }
   };
+  
 
   return (
     <div className="bg-[#f7fafd] min-h-screen">
+        <Banner/>
       <div className="max-w-5xl mx-auto py-12 px-6">
         <div className="bg-white p-8 shadow rounded-xl space-y-12">
-
+      
           {/* Job Information Card */}
           <div className="bg-white p-6 rounded-2xl shadow-md">
             <h2 className="text-xl font-semibold mb-6">Job Information</h2>
@@ -79,6 +87,7 @@ function AddJob() {
                 }
               />
             </div>
+
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
