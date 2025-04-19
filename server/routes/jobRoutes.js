@@ -1,41 +1,63 @@
 // routes/jobRoutes.js
 const express = require('express');
-const Job = require('../models/JobModel');  // Assuming Job model is defined in models/JobModel.js
 const router = express.Router();
+const Job = require('../models/Job');
+const { upload } = require('../utils/cloudinary');
 
-// Get jobs with pagination
-router.get('/', async (req, res) => {
-  const { page = 1, limit = 5 } = req.query;
+router.post('/', upload.single('logo'), async (req, res) => {
   try {
-    const jobs = await Job.find()
-      .skip((page - 1) * limit)
-      .limit(Number(limit));
+    const {
+      jobTitle,
+      jobDescription,
+      companyDescription,
+      isAgreed,
+      jobCategory,
+      jobType,
+      applicationDeadline,
+      salaryCurrency,
+      companyName,
+      companyWebsite,
+      companyIndustry,
+      facebook,
+      linkedin,
+      twitter,
+      instagram,
+      recruiterName,
+      recruiterEmail,
+    } = req.body;
 
-    const totalJobs = await Job.countDocuments();
-    const totalPages = Math.ceil(totalJobs / limit);
+    const logoUrl = req.file?.path || "";
 
-    res.json({
-      jobs,
-      currentPage: Number(page),
-      totalPages,
+    const newJob = new Job({
+      jobTitle,
+      jobDescription,
+      companyDescription,
+      isAgreed: isAgreed === 'true',
+      jobCategory,
+      jobType,
+      applicationDeadline,
+      salaryCurrency,
+      companyName,
+      companyWebsite,
+      companyIndustry,
+      socialLinks: {
+        facebook,
+        linkedin,
+        twitter,
+        instagram,
+      },
+      recruiter: {
+        fullName: recruiterName,
+        email: recruiterEmail,
+      },
+      logoUrl,
     });
-  } catch (error) {
-    res.status(500).json({ message: 'Error fetching jobs' });
-  }
-});
 
-// Toggle featured status
-router.patch('/:id/toggle-featured', async (req, res) => {
-  try {
-    const job = await Job.findById(req.params.id);
-    if (!job) {
-      return res.status(404).json({ message: 'Job not found' });
-    }
-    job.featured = !job.featured;  // Toggle the featured field
-    await job.save();
-    res.json(job);
-  } catch (error) {
-    res.status(500).json({ message: 'Error updating job' });
+    await newJob.save();
+    res.status(201).json({ message: "Job posted successfully", job: newJob });
+  } catch (err) {
+    console.error("Error posting job:", err);
+    res.status(500).json({ message: "Failed to post job" });
   }
 });
 
