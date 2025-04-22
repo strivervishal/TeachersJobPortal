@@ -11,6 +11,8 @@ import ManageApplications from './components/manageApplications';
 import AddJob from './components/AddJob';  
 import ManageResumes from './components/ManageResumes';
 import BrowseResume from './components/BrowseResumes';
+import MyResume from './components/MyResume';  
+
 
 const App = () => {
 
@@ -61,6 +63,8 @@ const App = () => {
         <Route path='/manage-resumes' element={<ManageResumes />} />
 
         <Route path='browse-resumes' element={<BrowseResume />} />
+
+        <Route path="/my-resume" element={<MyResume />} />
         {/* Catch-all Route for undefined paths */}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
