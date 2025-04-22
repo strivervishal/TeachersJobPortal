@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Banner from './Banner';
 import Footer from './Footer';
 
 function AddJob() {
@@ -61,6 +62,7 @@ function AddJob() {
 
   return (
     <div className="bg-[#f7fafd] min-h-screen">
+     <Banner/>
       <div className="max-w-5xl mx-auto py-12 px-6">
         <div className="bg-white p-8 shadow rounded-xl space-y-12">
 
