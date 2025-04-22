@@ -28,7 +28,9 @@ app.use('/api/auth', require('./routes/auth'));
 app.use("/api/contact", contactRoutes);
 app.use("/api/applications", require('./routes/applications'));
 app.use('/api/jobs', require('./routes/jobRoutes'));  // Add this line to include job routes
+
 app.use('/api/resumes', resumeRoutes) // for Browse Resumes
+app.use('/uploads', express.static('uploads'));
 app.use('/api/manage-resumes', require('./routes/resumesRoutes')); 
 
 // Test protected route
