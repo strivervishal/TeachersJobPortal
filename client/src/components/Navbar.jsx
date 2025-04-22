@@ -101,6 +101,9 @@ const Navbar = () => {
                     if (key === 'employers' && item === 'Manage Resume') {
                       navigate('/manage-resumes');
                     }
+                    if (key === 'employers' && item === 'Browse Resumes') {
+                      navigate('/browse-resumes');
+                    }
                     if (key === 'home' && item === 'Home 1') {
                       navigate('/');
                     }
@@ -141,6 +144,9 @@ const Navbar = () => {
                     }
                     if (key === 'employers' && item === 'Manage Resume') {
                       navigate('/manage-resumes');
+                    }
+                    if (key === 'employers' && item === 'Browse Resumes') {
+                      navigate('/browse-resumes');
                     }                 
                     if (key === 'home' && item === 'Home 1') {
                       navigate('/');
