@@ -60,6 +60,22 @@ const routeTextMap = {
       { text: 'Browse Resumes', link: '/browse-resumes' }
     ],
   },
+  "/my-resume": {
+    title: "My Resume",
+    text: "Business plan draws on a wide range of knowledge from different business disciplines. Business draws on a wide range of different business.",
+    breadcrumbs: [
+      { text: 'Home', link: '/' },
+      { text: 'My Resume', link: '/my-resume' }
+    ],
+  },
+  "/job-alerts": {
+    title: "Job Alerts",
+    text: "Business plan draws on a wide range of knowledge from different business disciplines. Business draws on a wide range of different business.",
+    breadcrumbs: [
+      { text: 'Home', link: '/' },
+      { text: 'Job Alerts', link: '/job-alerts' }
+    ],
+  },
   "/contact": {
     title: "Contact Us",
     text: "Business plan draws on a wide range of knowledge from different business disciplines. Business draws on a wide range of different business.",

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { ChevronLeft, ChevronRight, Clipboard, Bookmark, Bell, Mail, Briefcase, Lock, LogOut, } from 'lucide-react';
 import Banner from './Banner';
 import Footer from './Footer';
+import Sidebar from './Sidebar';
 
 const application = [
   {
@@ -192,7 +193,8 @@ const ManageApplications = () => {
       <Banner />
       <div className="flex  flex-wrap lg:flex-nowrap justify-center items-start min-h-screen bg-[#f5f9ff] p-5 lg:p-8 gap-5 font-['Segoe_UI',sans-serif]">
       {/* Sidebar */}
-      <div className="w-240px bg-white rounded-lg p-[30px_20px] shadow-sm h-fit flex-shrink-0 lg:mr-0 w-full lg:w-[350px]">
+      <Sidebar/>
+      {/* <div className="w-240px bg-white rounded-lg p-[30px_20px] shadow-sm h-fit flex-shrink-0 lg:mr-0 w-full lg:w-[350px]">
         <h2 className="text-xl font-semibold mb-4">Manage Account</h2>
         <ul className="space-y-3 text-gray-700 text-sm">
           <li>
@@ -258,7 +260,7 @@ const ManageApplications = () => {
             </a>
           </li>
         </ul>
-      </div>
+      </div> */}
 
       {/* Applications List */}
       <div className="flex-1 basis-[300px] max-w-[670px] w-full bg-white rounded-lg p-[15px] shadow-sm px-8">

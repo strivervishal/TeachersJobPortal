@@ -8,7 +8,7 @@ const Sidebar = () => {
   const isActive = (path) => location.pathname === path;
 
   return (
-    <div className="w-80 bg-white p-6 rounded-lg shadow-sm space-y-6 max-h-[60vh]">
+    <div className="w-90 bg-white p-6 rounded-lg shadow-sm space-y-6 max-h-[100vh]">
       <h2 className="text-xl font-semibold text-gray-800">Manage Account</h2>
       
       {/* Link to My Resume page */}
@@ -56,6 +56,14 @@ const Sidebar = () => {
         <button className={`w-full py-2 px-6 text-left text-sm border rounded-md 
           ${isActive('/manage-jobs') ? 'bg-blue-600 text-white border-blue-600' : 'bg-white border-gray-300 hover:bg-blue-500 hover:text-white'} mt-2`}>
           <FaBriefcase className="inline-block mr-2" /> Manage Jobs
+        </button>
+      </Link>
+
+      {/* Link to Job Alerts page */}
+      <Link to="/job-alerts">
+        <button className={`w-full py-2 px-6 text-left text-sm border rounded-md 
+          ${isActive('/job-alerts') ? 'bg-blue-600 text-white border-blue-600' : 'bg-white border-gray-300 hover:bg-blue-500 hover:text-white'} mt-2`}>
+          <FaBriefcase className="inline-block mr-2" /> Job Alerts
         </button>
       </Link>
 

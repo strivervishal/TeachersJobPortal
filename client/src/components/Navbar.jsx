@@ -109,6 +109,12 @@ const Navbar = () => {
                     }
                     if (item === 'Add Job') {
                       navigate('/add-job');
+                    }
+                    if (key === 'candidates' && item === 'Job Alerts') {
+                      navigate('/job-alerts')
+                    }
+                    if (key === 'candidates' && item === 'Add Resume') {
+                      navigate('/add-resume')
                     } 
                   }}
                 >
@@ -154,6 +160,12 @@ const Navbar = () => {
                     if (item === 'Add Job') {
                       navigate('/add-job');
                     } 
+                    if (key === 'candidates' && item === 'Job Alerts') {
+                      navigate('/job-alerts')
+                    }
+                    if (key === 'candidates' && item === 'Add Resume') {
+                      navigate('/my-resume')
+                    }
                   }}
                 >
                   {item}
