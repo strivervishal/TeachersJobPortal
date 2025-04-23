@@ -4,7 +4,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const contactRoutes = require("./routes/contactRoutes");
-const resumeRoutes = require('./routes/resumeRoutes')
+const resumeRoutes = require('./routes/resumeRoutes');
+const jobAlertsRoutes = require('./routes/jobAlertsRoutes');
 
 
 const app = express();
@@ -30,6 +31,7 @@ app.use("/api/applications", require('./routes/applications'));
 app.use('/api/jobs', require('./routes/jobRoutes'));  // Add this line to include job routes
 
 app.use('/api/resumes', resumeRoutes) // for Browse Resumes
+app.use('/api/jobalerts', jobAlertsRoutes);
 app.use('/uploads', express.static('uploads'));
 app.use('/api/manage-resumes', require('./routes/resumesRoutes')); 
 

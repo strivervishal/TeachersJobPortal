@@ -12,6 +12,7 @@ import AddJob from './components/AddJob';
 import ManageResumes from './components/ManageResumes';
 import BrowseResume from './components/BrowseResumes';
 import MyResume from './components/MyResume';  
+import JobAlerts from './components/JobAlerts';
 
 
 const App = () => {
@@ -65,6 +66,8 @@ const App = () => {
         <Route path='browse-resumes' element={<BrowseResume />} />
 
         <Route path="/my-resume" element={<MyResume />} />
+
+        <Route path='/job-alerts' element={<JobAlerts />} />
         {/* Catch-all Route for undefined paths */}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>

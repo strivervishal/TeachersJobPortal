@@ -3,86 +3,74 @@ import axios from "axios";
 import "./Manage.css";
 import Banner from "./Banner";
 import Footer from "./Footer";
-
+import Sidebar from "./Sidebar"; // Import the Sidebar component
+ 
 const ITEMS_PER_PAGE = 4;
-
+ 
 const ManageResumes = () => {
   const [applications, setApplications] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [editingApp, setEditingApp] = useState(null);
   const [note, setNote] = useState("");
   const [status, setStatus] = useState("");
-
+ 
   useEffect(() => {
     fetchApplications();
   }, []);
-
+ 
   const fetchApplications = () => {
     axios
       .get("http://localhost:5000/api/manage-resumes")
       .then((response) => setApplications(response.data))
       .catch((error) => console.error("Error fetching applications:", error));
   };
-
+ 
   const handleEditClick = (app) => {
     setEditingApp(app);
     setNote(app.note || "");
     setStatus(app.status || "New");
   };
-
+ 
   const handleSave = async () => {
     try {
       const { data: updatedApp } = await axios.put(`http://localhost:5000/api/manage-resumes/${editingApp._id}`, {
         note,
         status,
       });
-  
+ 
       const updatedApps = applications.map((app) =>
         app._id === editingApp._id ? updatedApp : app
       );
-  
+ 
       setApplications(updatedApps);
       setEditingApp(null);
     } catch (error) {
       console.error("Error updating application:", error);
     }
   };
-  
-
+ 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/manage-resumes/${id}`);  
-
+      await axios.delete(`http://localhost:5000/api/manage-resumes/${id}`);
       setApplications((prevApps) => prevApps.filter((app) => app._id !== id));
     } catch (error) {
       console.error("Error deleting application:", error);
     }
   };
-
+ 
   const totalPages = Math.ceil(applications.length / ITEMS_PER_PAGE);
   const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
   const visibleApplications = applications.slice(startIndex, startIndex + ITEMS_PER_PAGE);
-
+ 
   return (
     <>
       <Banner />
-      <div className="manage-container">
+      <div className="manage-container flex">
         {/* Sidebar */}
-        <div className="sidebar">
-          <h2>Manage Account</h2>
-          <button>My Resume</button>
-          <button>Bookmarked Jobs</button>
-          <button>
-            Notifications <span className="badge">5</span>
-          </button>
-          <button className="active">Manage Applications</button>
-          <button>Manage Jobs</button>
-          <button>Change Password</button>
-          <button>Sign Out</button>
-        </div>
-
+        <Sidebar /> {/* Keep Sidebar as is */}
+ 
         {/* Main Content */}
-        <div className="main-content p-6">
+        <div className="main-content p-6 flex-grow" style={{ width: '80%' }}>
           <div className="bg-white rounded-lg shadow-sm divide-y divide-gray-200">
             {visibleApplications.map((app) => (
               <div
@@ -130,7 +118,7 @@ const ManageResumes = () => {
                     </p>
                   )}
                 </div>
-
+ 
                 <div className="flex flex-col gap-2 mt-2 sm:mt-0">
                   <button className="bg-white hover:bg-gray-200 px-3 py-1 text-xs rounded border border-gray-300">
                     Hide
@@ -151,7 +139,7 @@ const ManageResumes = () => {
               </div>
             ))}
           </div>
-
+ 
           {/* Pagination */}
           <div className="flex justify-center mt-10 space-x-1">
             <button
@@ -190,7 +178,7 @@ const ManageResumes = () => {
               →
             </button>
           </div>
-
+ 
           {/* Edit Modal */}
           {editingApp && (
             <div className="fixed inset-0 bg-black/30 backdrop-blur-sm flex items-center justify-center z-50">
@@ -242,6 +230,7 @@ const ManageResumes = () => {
       <Footer />
     </>
   );
+ 
 };
-
+ 
 export default ManageResumes;
