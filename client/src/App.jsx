@@ -13,6 +13,8 @@ import ManageResumes from './components/ManageResumes';
 import BrowseResume from './components/BrowseResumes';
 import MyResume from './components/MyResume';  
 import JobAlerts from './components/JobAlerts';
+import Bookmarked from './components/Bookmarked';
+import JobDetails from './components/JobDetails';
 
 
 const App = () => {
@@ -66,6 +68,10 @@ const App = () => {
         <Route path='browse-resumes' element={<BrowseResume />} />
 
         <Route path="/my-resume" element={<MyResume />} />
+
+        <Route path="/bookmarked-jobs" element={<Bookmarked />} />
+
+        <Route path="/job-details/:id" element={<JobDetails />} />
 
         <Route path='/job-alerts' element={<JobAlerts />} />
         {/* Catch-all Route for undefined paths */}
