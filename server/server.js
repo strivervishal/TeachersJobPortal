@@ -11,6 +11,7 @@ const jobRoutes = require('./routes/jobRoutes');
 const authRoutes = require('./routes/auth');
 const applicationRoutes = require('./routes/applications');
 const manageResumeRoutes = require('./routes/resumesRoutes');
+//const userJobRoutes = require('./routes/userJobRoutes'); 
 
 const authMiddleware = require('./middleware/authMiddleware');
 
@@ -37,6 +38,7 @@ app.use('/api/resumes', resumeRoutes); // Resume browsing
 app.use('/api/jobalerts', jobAlertsRoutes);
 app.use('/api/manage-resumes', manageResumeRoutes); // Resume upload/edit
 app.use('/uploads', express.static('uploads')); // Serve uploaded files
+//app.use('/api/user-jobs', userJobRoutes);
 
 // Test protected route
 app.get('/api/protected', authMiddleware, (req, res) => {
