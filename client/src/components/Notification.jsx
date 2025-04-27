@@ -71,6 +71,7 @@ const Notification = () => {
       .catch((err) => console.error("Failed to fetch notifications", err));
   }, []);
   
+  
 
   const renderPageNumbers = () => {
     return Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
