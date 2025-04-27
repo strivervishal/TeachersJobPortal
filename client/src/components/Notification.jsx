@@ -59,18 +59,29 @@ const Notification = () => {
   const itemsPerPage = 5;
   const totalPages = Math.ceil(list.length / itemsPerPage);
 
-  const paginatedNotifications = list.slice(   // replace list to notifications while fetching data from backend
+  const paginatedNotifications = list.slice(
     (currentPage - 1) * itemsPerPage,
     currentPage * itemsPerPage
   );
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/")
+    fetch("http://localhost:5000/api/jobs")
       .then((res) => res.json())
-      .then((data) => setNotifications(data))
+      .then((data) => {
+        const today = new Date();
+  
+        // Filter jobs where deadline is still in the future
+        const activeJobs = data.filter((job) => {
+          const deadlineDate = new Date(job.applicationDeadline); // convert string to Date
+          return deadlineDate >= today; // only keep jobs whose deadline is today or later
+        });
+  
+        setNotifications(activeJobs);
+      })
       .catch((err) => console.error("Failed to fetch notifications", err));
   }, []);
   
+
   
 
   const renderPageNumbers = () => {
