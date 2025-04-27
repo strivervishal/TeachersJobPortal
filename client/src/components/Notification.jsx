@@ -53,6 +53,7 @@ const list = [
     },
   ];
 
+  
 const Notification = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [notifications, setNotifications] = useState()
