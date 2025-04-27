@@ -15,6 +15,7 @@ import MyResume from './components/MyResume';
 import JobAlerts from './components/JobAlerts';
 import Bookmarked from './components/Bookmarked';
 import JobDetails from './components/JobDetails';
+import Notification from './components/Notification';
 
 
 const App = () => {
@@ -74,6 +75,8 @@ const App = () => {
         <Route path="/job-details/:id" element={<JobDetails />} />
 
         <Route path='/job-alerts' element={<JobAlerts />} />
+
+        <Route path='/notifications' element={<Notification />} />
         {/* Catch-all Route for undefined paths */}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
