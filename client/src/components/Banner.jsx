@@ -75,6 +75,38 @@ const routeTextMap = {
       { text: 'Home', link: '/' },
       { text: 'Notifications', link: '/notifications' }
     ],
+  },
+  "/bookmarked" : {
+    title: "Bookmarked Jobs",
+    text: "Business plan draws on a wide range of knowledge from different business disciplines. Business draws on a wide range of different business.",
+    breadcrumbs: [
+      { text: 'Home', link: '/' },
+      { text: 'Bookmarked Jobs', link: '/bookmarked' }
+    ],
+  },
+  "/resume" : {
+    title: "Resume",
+    text: "Business plan draws on a wide range of knowledge from different business disciplines. Business draws on a wide range of different business.",
+    breadcrumbs: [
+      { text: 'Home', link: '/' },
+      { text: 'Resume', link: '/resume' }
+    ],
+  },
+  "/job-alerts" : {
+    title : "Job Alerts",
+    text : "Business plan draws on a wide range of knowledge from different business disciplines. Business draws on a wide range of different business.",
+    breadcrumbs: [
+      { text: 'Home', link: '/' },
+      { text: 'Job Alerts', link: '/job-alerts' }
+    ],
+  },
+  "/change-password" : {
+    title : "Change Password",
+    text : "Business plan draws on a wide range of knowledge from different business disciplines. Business draws on a wide range of different business.",
+    breadcrumbs: [
+      { text: 'Home', link: '/' },
+      { text: 'Change Password', link: '/change-password' }
+    ]
   }
 };
 
