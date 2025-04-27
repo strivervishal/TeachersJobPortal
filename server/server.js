@@ -3,9 +3,17 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-const contactRoutes = require("./routes/contactRoutes");
-const resumeRoutes = require('./routes/resumeRoutes')
 
+const contactRoutes = require('./routes/contactRoutes');
+const resumeRoutes = require('./routes/resumeRoutes');
+const jobAlertsRoutes = require('./routes/jobAlertsRoutes');
+const jobRoutes = require('./routes/jobRoutes');
+const authRoutes = require('./routes/auth');
+const applicationRoutes = require('./routes/applications');
+const manageResumeRoutes = require('./routes/resumesRoutes');
+//const userJobRoutes = require('./routes/userJobRoutes'); 
+
+const authMiddleware = require('./middleware/authMiddleware');
 
 const app = express();
 
@@ -21,20 +29,18 @@ mongoose.connect(process.env.MONGO_URI)
 app.use(cors());
 app.use(express.json());
 
-
-
 // Routes
-app.use('/api/auth', require('./routes/auth'));
-app.use("/api/contact", contactRoutes);
-app.use("/api/applications", require('./routes/applications'));
-app.use('/api/jobs', require('./routes/jobRoutes'));  // Add this line to include job routes
-
-app.use('/api/resumes', resumeRoutes) // for Browse Resumes
-app.use('/uploads', express.static('uploads'));
-app.use('/api/manage-resumes', require('./routes/resumesRoutes')); 
+app.use('/api/auth', authRoutes);
+app.use('/api/contact', contactRoutes);
+app.use('/api/applications', applicationRoutes);
+app.use('/api/jobs', jobRoutes); // Job management
+app.use('/api/resumes', resumeRoutes); // Resume browsing
+app.use('/api/jobalerts', jobAlertsRoutes);
+app.use('/api/manage-resumes', manageResumeRoutes); // Resume upload/edit
+app.use('/uploads', express.static('uploads')); // Serve uploaded files
+//app.use('/api/user-jobs', userJobRoutes);
 
 // Test protected route
-const authMiddleware = require('./middleware/authMiddleware');
 app.get('/api/protected', authMiddleware, (req, res) => {
   res.json({ message: `Hello user ${req.user}` });
 });
@@ -44,5 +50,8 @@ app.get('/', (req, res) => {
   res.send('Welcome to the job management API!');
 });
 
+// Start Server
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
+app.listen(PORT, () => {
+  console.log(`Server started on port ${PORT}`);
+});

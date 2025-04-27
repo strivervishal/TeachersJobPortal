@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useParams } from 'react-router-dom';
 
 const routeTextMap = {
 
@@ -60,6 +60,39 @@ const routeTextMap = {
       { text: 'Browse Resumes', link: '/browse-resumes' }
     ],
   },
+  "/my-resume": {
+    title: "My Resume",
+    text: "Business plan draws on a wide range of knowledge from different business disciplines. Business draws on a wide range of different business.",
+    breadcrumbs: [
+      { text: 'Home', link: '/' },
+      { text: 'My Resume', link: '/my-resume' }
+    ],
+  },
+  "/job-alerts": {
+    title: "Job Alerts",
+    text: "Business plan draws on a wide range of knowledge from different business disciplines. Business draws on a wide range of different business.",
+    breadcrumbs: [
+      { text: 'Home', link: '/' },
+      { text: 'Job Alerts', link: '/job-alerts' }
+    ],
+  },
+  "/bookmarked-jobs": {
+  title: "Bookmarked Job",
+  text: "Business plan draws on a wide range of knowledge from different business disciplines. Business draws on a wide range of different business.",
+  breadcrumbs: [
+    { text: 'Home', link: '/' },
+    { text: 'Bookmarked Job', link: '/bookmarked-jobs' }
+  ],
+},
+"/job-details/:id": {
+    title: "Job Details",
+    text: "Business plan draws on a wide range of knowledge from different business disciplines. Business draws on a wide range of different business.",
+    breadcrumbs: [
+      { text: 'Home', link: '/' },
+      { text: 'Job Details', link: '/job-details/:id' }
+    ],
+  },
+
   "/contact": {
     title: "Contact Us",
     text: "Business plan draws on a wide range of knowledge from different business disciplines. Business draws on a wide range of different business.",
@@ -116,11 +149,23 @@ const Banner = () => {
   const location = useLocation();
   const { pathname } = location;
 
-  const data = routeTextMap[pathname];
+  // Extracting dynamic 'id' from the job-details path
+  const { id } = useParams();
+
+  // Checking if the route exists in the routeTextMap
+  const data = routeTextMap[pathname] || routeTextMap['/job-details/:id']; // Fallback for dynamic route
 
   if (!data) return null; // If route not found in map, don't render anything
 
-  const { title, text, breadcrumbs } = data;
+  // Adjusting breadcrumbs if the route is a dynamic job-details route
+  const breadcrumbs = data.breadcrumbs.map(crumb => {
+    if (crumb.link === '/job-details/:id' && id) {
+      return { ...crumb, link: `/job-details/${id}` }; // Replace the dynamic part with the actual ID
+    }
+    return crumb;
+  });
+
+  const { title, text } = data;
 
   return (
     <div className="relative bg-blue-700 text-white py-20 px-6 md:px-20 overflow-hidden">
