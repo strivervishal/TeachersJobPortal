@@ -1,6 +1,5 @@
 import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import Navbar from './components/Navbar';
 import Home from './components/Home';
 import Login from './components/Login';
 import Signup from './components/Signup';
@@ -16,6 +15,8 @@ import JobAlerts from './components/JobAlerts';
 import Bookmarked from './components/Bookmarked';
 import JobDetails from './components/JobDetails';
 import Notification from './components/Notification';
+import Navbar from './components/navbar';
+// import EmployerDashboard from './components/dashbord';
 
 
 const App = () => {
