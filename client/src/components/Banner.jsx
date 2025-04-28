@@ -68,7 +68,7 @@ const routeTextMap = {
       { text: 'My Resume', link: '/my-resume' }
     ],
   },
-  "/job-alerts": {
+  "/job-alert": {
     title: "Job Alerts",
     text: "Business plan draws on a wide range of knowledge from different business disciplines. Business draws on a wide range of different business.",
     breadcrumbs: [
