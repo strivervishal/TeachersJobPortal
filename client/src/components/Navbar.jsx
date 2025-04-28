@@ -7,7 +7,7 @@ import { AuthContext } from '../context/AuthContext';
 const Navbar = () => {
   const [openMenu, setOpenMenu] = useState(null);
   const [hoveredMenu, setHoveredMenu] = useState(null);
-  const [hoveredDropdown, setHoveredDropdown] = useState(null);      // ← ADD THIS LINE
+  const [hoveredDropdown, setHoveredDropdown] = useState(null);
   const [isMobile, setIsMobile] = useState(false);
   const [showMobileNav, setShowMobileNav] = useState(false);
   const navRef = useRef(null);
@@ -76,7 +76,7 @@ const Navbar = () => {
       >
         <span style={{ ...linkBase, ...(isUnderlined(key) ? linkActive : {}) }}>{label}</span>
 
-        {hasDropdown && openMenu === key && !isMobile && (
+        {hasDropdown && openMenu === key && (
           <div style={dropdownStyle}>
             {menus[key].map((item, i) => {
               const id = `${key}-${i}`;
@@ -85,87 +85,20 @@ const Navbar = () => {
                   key={i}
                   style={{
                     ...dropdownItem,
-                    ...(hoveredDropdown === id
-                      ? { backgroundColor: '#2952FF', color: '#fff' }
-                      : {})
+                    ...(hoveredDropdown === id ? { backgroundColor: '#2952FF', color: '#fff' } : {})
                   }}
-                  onMouseEnter={() => setHoveredDropdown(id)}      
-                  onMouseLeave={() => setHoveredDropdown(null)}     
-                  onClick={() => {
-                    if (key === 'employers' && item === 'Manage Jobs') {
-                      navigate('/manage-jobs');
-                    }
-                    if (key === 'employers' && item === 'Manage Applications') {
-                      navigate('/manage-applications');
-                    }
-                    if (key === 'employers' && item === 'Manage Resume') {
-                      navigate('/manage-resumes');
-                    }
-                    if (key === 'employers' && item === 'Browse Resumes') {
-                      navigate('/browse-resumes');
-                    }
-                    if (key === 'home' && item === 'Home 1') {
-                      navigate('/');
-                    }
-                    if (item === 'Add Job') {
-                      navigate('/add-job');
-                    }
-                    if (key === 'candidates' && item === 'Job Alerts') {
-                      navigate('/job-alerts')
-                    }
-                    if (key === 'candidates' && item === 'Add Resume') {
-                      navigate('/add-resume')
-                    } 
-                  }}
-                >
-                  {item}
-                </div>
-              );
-            })}
-          </div>
-        )}
-
-        {hasDropdown && openMenu === key && isMobile && (
-          <div>
-            {menus[key].map((item, i) => {
-              const id = `${key}-${i}`;
-              return (
-                <div
-                  key={i}
-                  style={{
-                    ...dropdownItem,
-                    ...(hoveredDropdown === id
-                      ? { backgroundColor: '#2952FF', color: '#fff' }
-                      : {})
-                  }}
-                  onMouseEnter={() => setHoveredDropdown(id)}      
-                  onMouseLeave={() => setHoveredDropdown(null)}     
+                  onMouseEnter={() => setHoveredDropdown(id)}
+                  onMouseLeave={() => setHoveredDropdown(null)}
                   onClick={() => {
                     setShowMobileNav(false);
-                    if (key === 'employers' && item === 'Manage Jobs') {
-                      navigate('/manage-jobs');
-                    }
-                    if (key === 'employers' && item === 'Manage Applications') {
-                      navigate('/manage-applications');
-                    }
-                    if (key === 'employers' && item === 'Manage Resume') {
-                      navigate('/manage-resumes');
-                    }
-                    if (key === 'employers' && item === 'Browse Resumes') {
-                      navigate('/browse-resumes');
-                    }                 
-                    if (key === 'home' && item === 'Home 1') {
-                      navigate('/');
-                    }
-                    if (item === 'Add Job') {
-                      navigate('/add-job');
-                    } 
-                    if (key === 'candidates' && item === 'Job Alerts') {
-                      navigate('/job-alerts')
-                    }
-                    if (key === 'candidates' && item === 'Add Resume') {
-                      navigate('/my-resume')
-                    }
+                    if (key === 'employers' && item === 'Manage Jobs') navigate('/manage-jobs');
+                    if (key === 'employers' && item === 'Manage Applications') navigate('/manage-applications');
+                    if (key === 'employers' && item === 'Manage Resume') navigate('/manage-resumes');
+                    if (key === 'employers' && item === 'Browse Resumes') navigate('/browse-resumes');
+                    if (key === 'home' && item === 'Home 1') navigate('/');
+                    if (item === 'Add Job') navigate('/add-job');
+                    if (key === 'candidates' && item === 'Job Alerts') navigate('/job-alerts');
+                    if (key === 'candidates' && item === 'Add Resume') navigate('/add-resume');
                   }}
                 >
                   {item}
@@ -181,9 +114,9 @@ const Navbar = () => {
   const navStyle = {
     display: 'flex', justifyContent: 'space-between', alignItems: 'center',
     padding: '0 1rem', height: '60px', backgroundColor: '#fff',
-    boxShadow: '0 2px 4px rgba(0,0,0,0.1)', fontFamily: 'sans-serif', position: 'relative', zIndex: 1000,
+    boxShadow: '0 2px 4px rgba(0,0,0,0.1)', fontFamily: 'sans-serif', position: 'sticky', top: 0, zIndex: 1000,
   };
-  const logoStyle = { display: 'flex', alignItems: 'center', fontSize: '1.25rem', fontWeight: '700' };
+  const logoStyle = { display: 'flex', alignItems: 'center', fontSize: '1.25rem', fontWeight: '700', textDecoration: 'none' };
   const logoJob = { backgroundColor: '#2952FF', color: '#fff', padding: '0.4rem 0.75rem', clipPath: 'polygon(0 0, 100% 0, 85% 100%, 0% 100%)' };
   const logoGrids = { backgroundColor: '#0A0E27', color: '#fff', padding: '0.4rem 0.75rem', clipPath: 'polygon(15% 0, 100% 0, 100% 100%, 0% 100%)' };
   const hamburgerStyle = { display: isMobile ? 'block' : 'none', fontSize: '1.5rem', cursor: 'pointer' };
@@ -206,31 +139,48 @@ const Navbar = () => {
 
   return (
     <nav style={navStyle} ref={navRef}>
-      <div style={logoStyle}>
+      <Link to="/" style={logoStyle}>
         <span style={logoJob}>Job</span>
         <span style={logoGrids}>Grids</span>
-      </div>
+      </Link>
+
       <div style={hamburgerStyle} onClick={() => setShowMobileNav(v => !v)}>
         {showMobileNav ? <FaTimes /> : <FaBars />}
       </div>
+
       <ul style={navList}>
         {renderMenu('home', 'Home')}
         {renderMenu('pages', 'Pages')}
         {renderMenu('candidates', 'Candidates')}
         {renderMenu('employers', 'Employers')}
+
         <li
-  style={navItem}
-  onMouseEnter={() => !isMobile && setHoveredMenu('contact')}
-  onMouseLeave={() => !isMobile && setHoveredMenu(null)}
-  onClick={() => isMobile && setShowMobileNav(false)}
->
-  <Link
-    to="/contact"
-    style={{ ...linkBase, ...(isUnderlined('contact') ? linkActive : {}) }}
-  >
-    Contact
-  </Link>
-</li>
+          style={navItem}
+          onMouseEnter={() => !isMobile && setHoveredMenu('blog')}
+          onMouseLeave={() => !isMobile && setHoveredMenu(null)}
+          onClick={() => isMobile && setShowMobileNav(false)}
+        >
+          <Link
+            to="/blog"
+            style={{ ...linkBase, ...(isUnderlined('blog') ? linkActive : {}) }}
+          >
+            Blog
+          </Link>
+        </li>
+
+        <li
+          style={navItem}
+          onMouseEnter={() => !isMobile && setHoveredMenu('contact')}
+          onMouseLeave={() => !isMobile && setHoveredMenu(null)}
+          onClick={() => isMobile && setShowMobileNav(false)}
+        >
+          <Link
+            to="/contact"
+            style={{ ...linkBase, ...(isUnderlined('contact') ? linkActive : {}) }}
+          >
+            Contact
+          </Link>
+        </li>
 
         {isMobile && showMobileNav && (
           <>
@@ -245,6 +195,7 @@ const Navbar = () => {
           </>
         )}
       </ul>
+
       <div style={authContainer}>
         {!isAuthenticated ? (
           <>
